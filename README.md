@@ -2,6 +2,8 @@
 
 An interactive, single-page cheat sheet that explains eleven core Git and GitHub concepts through short descriptions, key considerations, curated further-reading links, and an animated SVG diagram for each one.
 
+![Screenshot of the Git & GitHub, Visualized site](screenshot.jpg)
+
 ## Concepts covered
 
 1. Repository (repo)
