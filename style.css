@@ -219,16 +219,3 @@ body{
   font-size:.85rem;
   padding:0 24px 48px;
 }
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#1c1712;
-    --bg-card:#241d16;
-    --ink:#f1e8da;
-    --ink-soft:#bfb0a0;
-    --line:#3a3126;
-    --accent-soft:#3a2c1c;
-    --box-bg:#241d16;
-  }
-  .visual-panel{background:linear-gradient(180deg,#241d16,#1c1712);}
-}
