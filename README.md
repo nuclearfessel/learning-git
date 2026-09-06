@@ -46,3 +46,7 @@ npx serve .
 ## Contributing
 
 This is a personal learning/reference project, but suggestions and corrections are welcome via issues or pull requests.
+
+## License
+
+[MIT](LICENSE)
