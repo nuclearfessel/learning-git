@@ -62,11 +62,11 @@
         .to(files, {
           x: 90,
           opacity: 0,
-          duration: 0.7,
+          duration: 0.9,
           stagger: 0.15,
-          ease: "power2.in"
+          ease: "sine.inOut"
         })
-        .to(box, { scale: 1.06, duration: 0.18, yoyo: true, repeat: 1, ease: "power1.inOut" }, "-=0.2");
+        .to(box, { scale: 1.06, duration: 0.28, yoyo: true, repeat: 1, ease: "sine.inOut" }, "-=0.25");
       return tl;
     },
 
@@ -76,9 +76,9 @@
       const tl = gsap.timeline({ paused: true });
       tl.set(target, { opacity: 0, x: 0 })
         .set(packet, { x: 0, opacity: 1 })
-        .to(packet, { x: 190, duration: 0.9, ease: "power1.inOut" })
-        .to(target, { opacity: 1, duration: 0.4 }, "-=0.15")
-        .to(packet, { opacity: 0, duration: 0.2 }, "-=0.1");
+        .to(packet, { x: 190, duration: 1.1, ease: "sine.inOut" })
+        .to(target, { opacity: 1, duration: 0.5, ease: "sine.out" }, "-=0.2")
+        .to(packet, { opacity: 0, duration: 0.3, ease: "sine.in" }, "-=0.15");
       return tl;
     },
 
@@ -87,8 +87,8 @@
       const point = svg.querySelector("#branch-point");
       const tl = gsap.timeline({ paused: true });
       tl.set(line, { opacity: 0 })
-        .to(point, { scale: 1.4, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 1 })
-        .to(line, { opacity: 1, duration: 0.5 });
+        .to(point, { scale: 1.4, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" })
+        .to(line, { opacity: 1, duration: 0.6, ease: "sine.out" });
       return tl;
     },
 
@@ -100,9 +100,9 @@
       tl.set(files, { x: 0, y: 0, opacity: 1 })
         .set(node, { attr: { r: 0 } })
         .set(label, { opacity: 0 })
-        .to(files, { x: -70, y: 60, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.in" })
-        .to(node, { attr: { r: 6 }, duration: 0.25, ease: "back.out(2)" }, "-=0.15")
-        .to(label, { opacity: 1, duration: 0.3 });
+        .to(files, { x: -70, y: 60, opacity: 0, duration: 0.75, stagger: 0.1, ease: "sine.inOut" })
+        .to(node, { attr: { r: 6 }, duration: 0.3, ease: "back.out(1.7)" }, "-=0.2")
+        .to(label, { opacity: 1, duration: 0.4, ease: "sine.out" });
       return tl;
     },
 
@@ -112,10 +112,10 @@
       const tl = gsap.timeline({ paused: true });
       tl.set(push, { opacity: 0, x: 0 })
         .set(pull, { opacity: 0, x: 0 })
-        .to(push, { opacity: 1, x: 70, duration: 0.6, ease: "power1.inOut" })
-        .to(push, { opacity: 0, duration: 0.15 })
-        .to(pull, { opacity: 1, x: -70, duration: 0.6, ease: "power1.inOut" })
-        .to(pull, { opacity: 0, duration: 0.15 });
+        .to(push, { opacity: 1, x: 70, duration: 0.75, ease: "sine.inOut" })
+        .to(push, { opacity: 0, duration: 0.25, ease: "sine.in" })
+        .to(pull, { opacity: 1, x: -70, duration: 0.75, ease: "sine.inOut" })
+        .to(pull, { opacity: 0, duration: 0.25, ease: "sine.in" });
       return tl;
     },
 
@@ -125,9 +125,9 @@
       const added2 = svg.querySelector("#diff-added2");
       const tl = gsap.timeline({ paused: true });
       tl.set([removed, added, added2], { opacity: 0 })
-        .to(removed, { opacity: 1, duration: 0.35 })
-        .to(added, { opacity: 1, duration: 0.35 }, "+=0.1")
-        .to(added2, { opacity: 1, duration: 0.35 }, "+=0.1");
+        .to(removed, { opacity: 1, duration: 0.45, ease: "sine.out" })
+        .to(added, { opacity: 1, duration: 0.45, ease: "sine.out" }, "+=0.1")
+        .to(added2, { opacity: 1, duration: 0.45, ease: "sine.out" }, "+=0.1");
       return tl;
     },
 
@@ -139,9 +139,9 @@
       tl.set(path, { strokeDashoffset: 120 })
         .set(node, { attr: { r: 0 } })
         .set(label, { opacity: 0 })
-        .to(path, { strokeDashoffset: 0, duration: 0.8, ease: "power1.inOut" })
-        .to(node, { attr: { r: 7 }, duration: 0.25, ease: "back.out(2)" }, "-=0.15")
-        .to(label, { opacity: 1, duration: 0.3 });
+        .to(path, { strokeDashoffset: 0, duration: 0.95, ease: "sine.inOut" })
+        .to(node, { attr: { r: 7 }, duration: 0.3, ease: "back.out(1.7)" }, "-=0.2")
+        .to(label, { opacity: 1, duration: 0.4, ease: "sine.out" });
       return tl;
     },
 
@@ -151,10 +151,10 @@
       const rb2 = svg.querySelector("#rb2"); // starts at (180,60), lands on main at (240,110)
       const tl = gsap.timeline({ paused: true });
       tl.set([rb1, rb2], { x: 0, y: 0 })
-        .to([rb1, rb2], { y: "-=20", duration: 0.3, stagger: 0.05, ease: "power1.out" })
-        .to(stem, { opacity: 0, duration: 0.2 }, "<")
-        .to(rb1, { x: 60, y: 30, duration: 0.5, ease: "power1.inOut" }, "+=0.05")
-        .to(rb2, { x: 60, y: 50, duration: 0.5, ease: "power1.inOut" }, "<");
+        .to([rb1, rb2], { y: "-=20", duration: 0.4, stagger: 0.06, ease: "sine.out" })
+        .to(stem, { opacity: 0, duration: 0.3, ease: "sine.in" }, "<")
+        .to(rb1, { x: 60, y: 30, duration: 0.65, ease: "sine.inOut" }, "+=0.05")
+        .to(rb2, { x: 60, y: 50, duration: 0.65, ease: "sine.inOut" }, "<");
       return tl;
     },
 
@@ -170,13 +170,13 @@
         .set(bang, { opacity: 0, scale: 0, transformOrigin: "50% 50%" })
         .set([box, text], { opacity: 0 })
         .set(resolved, { attr: { r: 0 } })
-        .to(a, { x: 40, duration: 0.4, ease: "power1.in" })
-        .to(b, { x: -40, duration: 0.4, ease: "power1.in" }, "<")
-        .to(bang, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" })
-        .to([box, text], { opacity: 1, duration: 0.3 }, "+=0.1")
-        .to([a, b], { opacity: 0, duration: 0.25 }, "+=0.3")
-        .to(bang, { opacity: 0, duration: 0.2 }, "<")
-        .to(resolved, { attr: { r: 8 }, duration: 0.25, ease: "back.out(2)" }, "-=0.1");
+        .to(a, { x: 40, duration: 0.5, ease: "sine.inOut" })
+        .to(b, { x: -40, duration: 0.5, ease: "sine.inOut" }, "<")
+        .to(bang, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" })
+        .to([box, text], { opacity: 1, duration: 0.4, ease: "sine.out" }, "+=0.1")
+        .to([a, b], { opacity: 0, duration: 0.35, ease: "sine.in" }, "+=0.3")
+        .to(bang, { opacity: 0, duration: 0.3, ease: "sine.in" }, "<")
+        .to(resolved, { attr: { r: 8 }, duration: 0.3, ease: "back.out(1.7)" }, "-=0.1");
       return tl;
     },
 
@@ -188,9 +188,9 @@
       tl.set(card, { opacity: 0, y: 10 })
         .set(check, { opacity: 0 })
         .set(arrow, { strokeDashoffset: 115 })
-        .to(card, { opacity: 1, y: 0, duration: 0.4 })
-        .to(check, { opacity: 1, duration: 0.3 }, "+=0.2")
-        .to(arrow, { strokeDashoffset: 0, duration: 0.6, ease: "power1.inOut" }, "+=0.1");
+        .to(card, { opacity: 1, y: 0, duration: 0.5, ease: "sine.out" })
+        .to(check, { opacity: 1, duration: 0.4, ease: "sine.out" }, "+=0.2")
+        .to(arrow, { strokeDashoffset: 0, duration: 0.75, ease: "sine.inOut" }, "+=0.1");
       return tl;
     },
 
@@ -201,9 +201,9 @@
       const tl = gsap.timeline({ paused: true });
       tl.set(labels, { opacity: 0 })
         .set(closed, { opacity: 0 })
-        .to(labels, { opacity: 1, duration: 0.35 })
-        .to(card, { attr: { stroke: "var(--green)" }, duration: 0.3 }, "+=0.3")
-        .to(closed, { opacity: 1, duration: 0.35 }, "-=0.1");
+        .to(labels, { opacity: 1, duration: 0.45, ease: "sine.out" })
+        .to(card, { attr: { stroke: "var(--green)" }, duration: 0.4, ease: "sine.inOut" }, "+=0.3")
+        .to(closed, { opacity: 1, duration: 0.45, ease: "sine.out" }, "-=0.1");
       return tl;
     }
   };
